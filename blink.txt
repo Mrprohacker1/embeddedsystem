@@ -1,0 +1,41 @@
+D:\MC\LED_BLINK.C
+Page 1
+1 #include <LPC21xx.h>
+2 
+3 unsigned int delay;
+4 
+5 int main ()
+6 
+7 {
+8 PINSEL1 = 0x00000000 ;
+9 IO0DIR = 0x00FF0000 ;
+10 
+11 while(1)
+12 {
+13 IO0CLR = 0x00FF0000;
+14 for(delay=0; delay<500000; delay++);
+15 IO0SET = 0x00FF0000;
+16 for(delay=0; delay<500000; delay++);
+17 }
+18 
+19 }D:\MC\LED_BLINK.C
+Page 1
+1 #include <LPC21xx.h>
+2 
+3 unsigned int delay;
+4 
+5 int main ()
+6 
+7 {
+8 PINSEL1 = 0x00000000 ;
+9 IO0DIR = 0x00FF0000 ;
+10 
+11 while(1)
+12 {
+13 IO0CLR = 0x00FF0000;
+14 for(delay=0; delay<500000; delay++);
+15 IO0SET = 0x00FF0000;
+16 for(delay=0; delay<500000; delay++);
+17 }
+18 
+19 }
