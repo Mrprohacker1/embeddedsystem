@@ -1,0 +1,33 @@
+uart.c
+Page 1
+1 #include<lpc214x.h>
+2 
+3 void uart_init(void);
+4 unsigned int delay;
+5 unsigned char *ptr;
+6 unsigned char arr[]="HELLO WORLD\r";
+7 
+8 int main()
+9 {
+10 while(1)
+11 {
+12 uart_init();
+13 ptr = arr;
+14 while(*ptr!='\0')
+15 {
+16 U0THR=*ptr++;
+17 while(!(U0LSR & 0x20)== 0x20);
+18 for(delay=0;delay<=600;delay++);
+19 }
+20 for(delay=0;delay<=60000;delay++);
+21 }
+22 }
+23 void uart_init(void)
+24 {
+25 PINSEL0=0X0000005;
+26 U0LCR = 0X00000083;
+27 U0DLM = 0X00;
+28 U0DLL = 0x13;
+29 U0LCR = 0X00000003;
+30 
+31 }
