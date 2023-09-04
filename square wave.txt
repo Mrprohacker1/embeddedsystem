@@ -1,0 +1,26 @@
+D:\MC\DAC_SQUARE_WAVE.C
+Page 1
+1 #include <lpc21xx.h>
+2 void delay(void);
+3 
+4 int main ()
+5 {
+6 PINSEL0 = 0x00000000 ;
+7 PINSEL1 = 0x00000000 ;
+8 IO0DIR = 0x00FF0000 ;
+9 
+10 while(1)
+11 {
+12 IO0PIN = 0x00000000;
+13 
+14 delay();
+15 IO0PIN = 0x00FF0000;
+16 delay();
+17 }
+18 }
+19 
+20 void delay(void)
+21 {
+22 unsigned int i=0;
+23 for(i=0;i<=95000;i++);
+24 }
