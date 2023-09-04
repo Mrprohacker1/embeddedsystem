@@ -1,0 +1,53 @@
+D:\MC\STEPPER_MOTOR.C
+Page 1
+1 #include <LPC21xx.H>
+2 
+3 void clock_wise(void);
+4 void anti_clock_wise(void);
+5 
+6 unsigned long int var1,var2;
+7 unsigned int i=0,j=0,k=0;
+8 
+9 int main(void)
+10 {
+11 PINSEL0 = 0x00000000;
+12 IO0DIR |= 0x0000F000;
+13 
+14 while(1)
+15 {
+16 for(j=0;j<50;j++)
+17 clock_wise();
+18 
+19 for(k=0;k<65000;k++);
+20 
+21 for(j=0;j<50;j++)
+22 anti_clock_wise();
+23 
+24 for(k=0;k<65000;k++);
+25 
+26 }
+27 
+28 }
+29 
+30 void clock_wise(void)
+31 {
+32 var1 = 0x00000800;
+33 for(i=0;i<=3;i++)
+34 {
+35 var1 = var1<<1;
+36 IO0PIN = var1;
+37 for(k=0;k<3000;k++);
+38 }
+39 }
+40 
+41 void anti_clock_wise(void)
+42 {
+43 var1 = 0x00010000;
+44 for(i=0;i<=3;i++)
+45 {
+46 var1 = var1>>1;
+47 IO0PIN = var1;
+48 for(k=0;k<3000;k++);
+49 
+50 }
+51 }
